@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ profile.name }} | {{ block.super }} {% endblock title %}
+
+{% block content %}
+
+{% if profile %}
+	
+	<center>			
+	<h3 >Name : {{ profile.name }}</h3>
+	<h5>Email : {{ profile.email }}</h5>
+	<h5>Mobile : {{ profile.mobile }}</h5>
+
+	{% if profile.address %}
+		<h5>Address : {{ profile.address }}</h5>
+	{% else %}
+		<h5>Address : <small>Not provided</small></h5>
+
+	{% endif %}
+	<h5>Created : {{ profile.timestamp | timesince }} ago</h5>
+
+	<br><br>
+
+	<a href="{% url 'crudapp:update' id=profile.id %}" class="btn btn-primary">Edit</a>
+	<a href="{% url 'crudapp:delete' id=profile.id %}" class="btn btn-danger">Delete</a>
+	
+
+
+	</center>
+	
+{% else %}
+<h1>No pofile</h1>
+{% endif %}
+
+
+{% endblock content %}

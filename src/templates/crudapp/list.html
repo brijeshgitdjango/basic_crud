@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}List | {{ block.super }} {% endblock title %}
+
+{% block content %}
+
+{% if profile_list %}
+
+<center>
+	<ul class="list-unstyled">
+		{% for p in profile_list %}
+			<li>
+				<a href="{% url 'crudapp:detail' id=p.id %}">
+					<h3>{{ p.name }}</h3>
+				</a>
+				<hr>
+			</li>
+		{% endfor %}
+	</ul>
+</center>
+
+{% else %}
+
+<h1>No pofiles</h1>
+
+{% endif %}
+
+{% endblock content %}

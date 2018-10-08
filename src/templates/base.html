@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Crudapp{% endblock title %}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		.errorlist{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="breadcrumb">
+		    <li><a href="{% url 'crudapp:list' %}">Profiles List</a></li>
+		    <li><a href="{% url 'crudapp:create' %}">Create New Profile</a></li>
+		</ul>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 col-sm-10 col-sm-offset-1"> 
+				{% block content %}{% endblock content %}
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
